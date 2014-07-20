@@ -1,0 +1,24 @@
+var appSettings= 
+{
+	"theme": "cool_world",
+	"sections": ["Reasoning", "English Language", "Numerical Ability", "General Awareness", "Computer Knowledge"],
+	"exam_pattern": {
+		"Computer Knowledge": {
+			"total_questions": 10
+		},
+		"Reasoning": {
+			"sylagems": 1,
+			"total_questions": 10
+		},
+		"English Language": {
+			"total_questions": 3
+		},
+		"Numerical Ability": {
+			"total_questions": 4
+		},
+		"General Awareness": {
+			"total_questions": 4
+		}
+	},
+	"timer": 1
+}

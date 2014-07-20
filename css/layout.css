@@ -1,0 +1,111 @@
+/*layout*/
+body {
+
+}
+div{
+	
+}
+button,input{
+	margin:5px !important;
+}
+
+.examSection{
+	position:absolute;
+	top:0px;
+	right:0px;
+	left:0px;
+	bottom:0px;
+
+	margin: 2%;
+}
+.leftSideContainer{
+	position:absolute;
+	right: 200px;
+	left:0px;
+	width: 80%;
+	margin:5px;
+}
+.rightSideContainer{
+	position:absolute;
+	right: 0px;
+	width: 20%;
+}
+.indexedButtons{
+	height: 320px;
+	overflow-y: scroll;
+}
+@media screen and (max-width: 810px) {
+	button,input{
+		/*margin:3px !important;*/
+	}
+	.btn{
+		/*padding:3px 6px !important; */
+	}
+	.modal{
+		/*font-size:0.8em;*/
+	}
+}
+@media screen and (max-width: 480px) {
+	.welcomeNote,legend,.questionSectionInfo{
+		/*display:none;*/
+	}
+	button,input{
+		/*margin:1px !important;*/
+	}
+	.btn{
+		/*padding:0px 2px !important; */
+	}
+	.modal{
+		/*font-size:0.7em;*/
+	}
+}
+
+/*Style*/
+/*
+.green,.green:hover,.green:focus{
+	background-color: green;
+}
+.yellow:focus,.yellow:hover,.yellow{
+	background-color: yellow;
+}
+.red,.red:focus,.red:hover{
+	background-color: red;
+}*/
+.popup{
+	z-index: 10;
+	padding: 10px;
+	display: block;
+	position: absolute;
+	top: 0px;
+	bottom: 0px;
+	right: 0px;
+	left: 0px;
+	background-color: hsl(0, 100%, 100%);
+	box-shadow: 0px 0px 17px hsl(0, 0%, 78%);
+	-webkit-box-shadow: 0px 0px 17px hsl(0, 0%, 78%);
+	-moz-box-shadow: 0px 0px 17px #c8c8c8;
+	-ms-box-shadow: 0px 0px 17px #c8c8c8;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+	margin-bottom: 10px;
+}
+.bottomNavigationContainer{
+	width: 100%;	
+}
+.indexedButtons{
+
+}
+@media screen and (max-width: 600px){
+	.leftSideContainer,.rightSideContainer,.bottomNavigationContainer{
+		width:100%;
+		position:relative;
+	}
+	.indexedButtons{
+		height: 100px;
+	}
+	.bottomNavigationContainer{
+	display: inline-table;
+		/*height:30px;*/
+	}
+}

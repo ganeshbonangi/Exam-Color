@@ -1,0 +1,399 @@
+var questionsData=  {
+	"Reasoning": {
+		"direct_questions": [
+			{
+				"question": "Reasoning question 1",
+				"options": [1, 2, 3, 4],
+				"user_answer": "df",
+				"ans_indicator": 1
+			}, {
+				"question": "Reasoning question 2",
+				"options": [1, 2, 3, 4],
+				"user_answer": "df",
+				"ans_indicator": 1
+			}, {
+				"question": "Reasoning question 3",
+				"options": [1, 2, 3, 4],
+				"user_answer": "df",
+				"ans_indicator": 1
+			}
+		],
+		"grouping_questions": {
+
+			"arrangements": [
+				{
+					"information": "arrangements info reasoning This is information",
+					"questions": [
+						{
+							"question": "grouping_questions question 4 resoning",
+							"options": [1, 2, 3, 4],
+							"user_answer": "df",
+							"ans_indicator": 1
+						}, {
+							"question": "grouping_questions question 5 resoning",
+							"options": [1, 2, 3, 4],
+							"user_answer": "df",
+							"ans_indicator": 1
+						}
+					]
+				}, {
+					"information": "grouping_questions reasoning This is information",
+					"questions": [
+						{
+							"question": "grouping_questions question 6 resoning",
+							"options": [1, 2, 3, 4],
+							"user_answer": "df",
+							"ans_indicator": 1
+						}, {
+							"question": "grouping_questions question 7 resoning",
+							"options": [1, 2, 3, 4],
+							"user_answer": "df",
+							"ans_indicator": 1
+						}
+					]
+				}
+			],
+			"sylagems": [
+				{
+					"information": "In each of the following questions two statements are given and these statements are followed by two conclusions numbered (1) and (2). You have to take the given two statements to be true even if they seem to be at variance from commonly known facts. Read the conclusions and then decide which of the given conclusions logically follows from the two given statements, ",
+					"questions": [
+						{
+							"question": "Statements: Some actors are singers. All the singers are dancers.Conclusions:Some actors are dancers.No singer is actor.",
+							"options": ["Only (1) conclusion follows", "Only (2) conclusion follows", "Either (1) or (2) follows", "Neither (1) nor (2) follows","Both (1) and (2) follow"],
+							"user_answer": "df",
+							"ans_indicator": 1						
+						}, {
+							"question": "Statements: All the harmoniums are instruments. All the instruments are flutes.Conclusions:All the flutes are instruments.All the harmoniums are flutes.",
+							"options": ["Only (1) conclusion follows", "Only (2) conclusion follows", "Either (1) or (2) follows", "Neither (1) nor (2) follows","Both (1) and (2) follow"],
+							"user_answer": "df",
+							"ans_indicator": 2
+						}, {
+							"question": "Statements: Some mangoes are yellow. Some tixo are mangoes.Conclusions:Some mangoes are green.Tixo is a yellow.",
+							"options": ["Only (1) conclusion follows", "Only (2) conclusion follows", "Either (1) or (2) follows", "Neither (1) nor (2) follows","Both (1) and (2) follow"],
+							"user_answer": "df",
+							"ans_indicator": 4
+						}, {
+							"question": "Statements: Some ants are parrots. All the parrots are apples.Conclusions:All the apples are parrots.Some ants are apples.",
+							"options": ["Only (1) conclusion follows", "Only (2) conclusion follows", "Either (1) or (2) follows", "Neither (1) nor (2) follows","Both (1) and (2) follow"],
+							"user_answer": "df",
+							"ans_indicator": 2
+						}, {
+							"question": "Statements: Some papers are pens. All the pencils are pens.Conclusions:Some pens are pencils.Some pens are papers.",
+							"options": ["Only (1) conclusion follows", "Only (2) conclusion follows", "Either (1) or (2) follows", "Neither (1) nor (2) follows","Both (1) and (2) follow"],
+							"user_answer": "df",
+							"ans_indicator": 5
+						}
+					]
+				}, {
+					"information": "grouping_questions reasoning This is information",
+					"questions": [
+						{
+							"question": "grouping_questions question 10resoning",
+							"options": [1, 2, 3, 4],
+							"user_answer": "df",
+							"ans_indicator": 1
+						}, {
+							"question": "grouping_questions question 11resoning",
+							"options": [1, 2, 3, 4],
+							"user_answer": "df",
+							"ans_indicator": 1
+						}
+					]
+				}
+			],
+			"total_questions": [
+				{
+					"information": "sylages info reasoning This is information",
+					"questions": [
+						{
+							"question": "grouping_questions question 12",
+							"options": [1, 2, 3, 4],
+							"user_answer": "df",
+							"ans_indicator": 1
+						}, {
+							"question": "grouping_questions question 13",
+							"options": [1, 2, 3, 4],
+							"user_answer": "df",
+							"ans_indicator": 1
+						}
+					]
+				}, {
+					"information": "grouping_questions reasoning This is information",
+					"questions": [
+						{
+							"question": "grouping_questions question 14",
+							"options": [1, 2, 3, 4],
+							"user_answer": "df",
+							"ans_indicator": 1
+						}, {
+							"question": "grouping_questions question 15",
+							"options": [1, 2, 3, 4],
+							"user_answer": "df",
+							"ans_indicator": 1
+						}
+					]
+				}
+			]
+		}
+	},
+	"Computer Knowledge": {
+		"direct_questions": [
+			{
+				"question": "To change selected text to ALL CAPITAL LETTERS, click the change case button, and then click______",
+				"options": ["UPPERCASE", "UPPER ALL", "CAPS LOCK", "Lock upper","Large size"],
+				"user_answer": "df",
+				"ans_indicator": 1
+			}, {
+				"question": "A person who used his or expertise to gain access to other peoples computers to get information illegally or do damage is",
+				"options": ["Hacker", "Analyst", "Instant messenger", "Programmer","Spammer"],
+				"user_answer": "df",
+				"ans_indicator": 1
+			}, {
+				"question": "A device that connects to a network without the use of cables is said to be__________",
+				"options": ["distributed", "free", "centralized", "open source","None of these"],
+				"user_answer": "df",
+				"ans_indicator": 2
+			}, {
+				"question": "Reusable optical storage will typically have the acronym",
+				"options": ["CD", "DVD", "ROM", "RW"],
+				"user_answer": "df",
+				"ans_indicator": 4
+			}, {
+				"question": "The most common type of storage devices are___________",
+				"options": ["persistence", "optical", "magnetic", "flash"],
+				"user_answer": "df",
+				"ans_indicator": 3
+			}, {
+				"question": "Codes consisting of lines of varying widths or lengths that are computer readable are known as_______",
+				"options": ["an ASCII Code", "a magnetic type", " an OCR scanner", "a bar code","none of these"],
+				"user_answer": "df",
+				"ans_indicator": 4
+			}, {
+				"question": "A website's main page is called it's__________",
+				"options": ["home page", "browser page", "search page", "search page","none of these"],
+				"user_answer": "df",
+				"ans_indicator": 1
+			}, {
+				"question": "Part number, part description ,and number of parts ordered are examples of_______",
+				"options": ["control", "output", "processing", "feedback","output"],
+				"user_answer": "df",
+				"ans_indicator": 3
+			}, {
+				"question": "To access properties of an object, the mouse technique to use is __________",
+				"options": ["dragging", "dropping", " right-clicking", "shift-clicking","none of these"],
+				"user_answer": "df",
+				"ans_indicator": 3
+			}, {
+				"question": "Computers used the_ number systems to store data and perform calculations",
+				"options": ["binary", "octal", "decimal", "hexadecimal","none of these"],
+				"user_answer": "df",
+				"ans_indicator": 1
+			}, {
+				"question": "11.______ are attempts by individuals to obtain confidential information from you by falsifying their identity.",
+				"options": ["phishing trips", "computer viruses", "Spyware spams", "viruses","phishing scams"],
+				"user_answer": "df",
+				"ans_indicator": 5
+			}, {
+				"question": "-------------dummy---------12.Why is it unethical to share copyrighted files with your friends",
+				"options": [".it is not unethical, because it is legal", "it is unethical because the files are being given for free", "c. sharing copyrighted files without permission breaks copyrights laws.", "it is not unethical because the files are being given for free","it is not unethical-anyone can access a computer"],
+				"user_answer": "df",
+				"ans_indicator": 3
+			}, {
+				"question": ".Which of the following can be used to select entire document?",
+				"options": ["CTRL+A", "ALT+F5", " SHIFT+A", "CTRL-K","CTRL+H"],
+				"user_answer": "df",
+				"ans_indicator": 1
+			}, {
+				"question": "To instruct word to fit the width of a column to the contents of a table automatically, dick the_____ button and then option to auto fit content",
+				"options": ["Fit to form", "format", "auto size", "contents","auto fit"],
+				"user_answer": "df",
+				"ans_indicator": 5
+			}, {
+				"question": "15. The simultaneous processing of 2 or more programs by processor is ___________",
+				"options": ["Multi programming", "multi-tasking", "time-sharing", "multi-processing","none of these"],
+				"user_answer": "df",
+				"ans_indicator": 2
+			}, {
+				"question": "16.A disk's content that recorded at his time of manufacture and that cannot be erased by the user is______",
+				"options": ["memory -only", "write- only", "once- only", "run-only","read-only"],
+				"user_answer": "df",
+				"ans_indicator": 5
+			}, {
+				"question": "17. What is the permanent memory built in to your computer called?",
+				"options": ["RAM", "Floppy", "CPU", "CD-ROM","ROM"],
+				"user_answer": "df",
+				"ans_indicator": 5
+			}, {
+				"question": "18.The default view in Excel is_____________ View",
+				"options": ["Work", "Auto", "normal", "Roman","none of these"],
+				"user_answer": "df",
+				"ans_indicator": 3
+			}, {
+				"question": "19.What displays the contents of the active cell in Excel",
+				"options": ["Name box", "Row heading", "Formula Bar", "Task panel","none of these"],
+				"user_answer": "df",
+				"ans_indicator": 3
+			}, {
+				"question": "20.In word you can force a page break___________",
+				"options": ["a. by positioning your cursor at the appropriate place and pressing the F1key", "b. By positioning your cursor at the appropriate place and pressing Ctrl+Enter", "By using the insert/section break", "d. by changing the font size of your documents","none of these"],
+				"user_answer": "df",
+				"ans_indicator": 2
+			}, {
+				"question": "A website's main page is called it's__________",
+				"options": ["home page", "browser page", "search page", "search page","none of these"],
+				"user_answer": "df",
+				"ans_indicator": 1
+			}, {
+				"question": "A website's main page is called i's__________",
+				"options": ["home page", "browser page", "search page", "search page","none of these"],
+				"user_answer": "df",
+				"ans_indicator": 1
+			}, {
+				"question": "A websit's main page is called it's__________",
+				"options": ["home page", "browser page", "search page", "search page","none of these"],
+				"user_answer": "df",
+				"ans_indicator": 1
+			}, {
+				"question": "A website's main page is called it's__________",
+				"options": ["home page", "browser page", "search page", "search page","none of these"],
+				"user_answer": "df",
+				"ans_indicator": 1
+			}
+		]
+	},
+	"English Language": {
+		"direct_questions": [
+			{
+				"question": "ComputerMarketing question 1",
+				"options": [1, 2, 3, 4],
+				"user_answer": "df",
+				"ans_indicator": 1
+			}, {
+				"question": "ComputerMarketing question 2",
+				"options": [1, 2, 3, 4],
+				"user_answer": "df",
+				"ans_indicator": 1
+			}, {
+				"question": "ComputerMarketing question 3",
+				"options": [1, 2, 3, 4],
+				"user_answer": "df",
+				"ans_indicator": 1
+			}, {
+				"question": "ComputerMarketing question 4",
+				"options": [1, 2, 3, 4],
+				"user_answer": "df",
+				"ans_indicator": 1
+			}, {
+				"question": "ComputerMarketing question 5",
+				"options": [1, 2, 3, 4],
+				"user_answer": "df",
+				"ans_indicator": 1
+			}, {
+				"question": "ComputerMarketing question 6",
+				"options": [1, 2, 3, 4],
+				"user_answer": "df",
+				"ans_indicator": 1
+			}, {
+				"question": "ComputerMarketing question 7",
+				"options": [1, 2, 3, 4],
+				"user_answer": "df",
+				"ans_indicator": 1
+			}, {
+				"question": "ComputerMarketing question 8",
+				"options": [1, 2, 3, 4],
+				"user_answer": "df",
+				"ans_indicator": 1
+			}
+		]
+	},
+	"Numerical Ability": {
+		"direct_questions": [
+			{
+				"question": "ComputerMarketing question 1",
+				"options": [1, 2, 3, 4],
+				"user_answer": "df",
+				"ans_indicator": 1
+			}, {
+				"question": "ComputerMarketing question 2",
+				"options": [1, 2, 3, 4],
+				"user_answer": "df",
+				"ans_indicator": 1
+			}, {
+				"question": "ComputerMarketing question 3",
+				"options": [1, 2, 3, 4],
+				"user_answer": "df",
+				"ans_indicator": 1
+			}, {
+				"question": "ComputerMarketing question 4",
+				"options": [1, 2, 3, 4],
+				"user_answer": "df",
+				"ans_indicator": 1
+			}, {
+				"question": "ComputerMarketing question 5",
+				"options": [1, 2, 3, 4],
+				"user_answer": "df",
+				"ans_indicator": 1
+			}, {
+				"question": "ComputerMarketing question 6",
+				"options": [1, 2, 3, 4],
+				"user_answer": "df",
+				"ans_indicator": 1
+			}, {
+				"question": "ComputerMarketing question 7",
+				"options": [1, 2, 3, 4],
+				"user_answer": "df",
+				"ans_indicator": 1
+			}, {
+				"question": "ComputerMarketing question 8",
+				"options": [1, 2, 3, 4],
+				"user_answer": "df",
+				"ans_indicator": 1
+			}
+		]
+	},
+	"General Awareness": {
+		"direct_questions": [
+			{
+				"question": "ComputerMarketing question 1",
+				"options": [1, 2, 3, 4],
+				"user_answer": "df",
+				"ans_indicator": 1
+			}, {
+				"question": "ComputerMarketing question 2",
+				"options": [1, 2, 3, 4],
+				"user_answer": "df",
+				"ans_indicator": 1
+			}, {
+				"question": "ComputerMarketing question 3",
+				"options": [1, 2, 3, 4],
+				"user_answer": "df",
+				"ans_indicator": 1
+			}, {
+				"question": "ComputerMarketing question 4",
+				"options": [1, 2, 3, 4],
+				"user_answer": "df",
+				"ans_indicator": 1
+			}, {
+				"question": "ComputerMarketing question 5",
+				"options": [1, 2, 3, 4],
+				"user_answer": "df",
+				"ans_indicator": 1
+			}, {
+				"question": "ComputerMarketing question 6",
+				"options": [1, 2, 3, 4],
+				"user_answer": "df",
+				"ans_indicator": 1
+			}, {
+				"question": "ComputerMarketing question 7",
+				"options": [1, 2, 3, 4],
+				"user_answer": "df",
+				"ans_indicator": 1
+			}, {
+				"question": "ComputerMarketing question 8",
+				"options": [1, 2, 3, 4],
+				"user_answer": "df",
+				"ans_indicator": 1
+			}
+		]
+	}
+}

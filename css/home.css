@@ -1,0 +1,30 @@
+.logoContainer{
+	box-shadow: 0px 0px 17px hsl(0, 0%, 78%);
+	-webkit-box-shadow: 0px 0px 17px hsl(0, 0%, 78%);
+	-moz-box-shadow: 0px 0px 17px #c8c8c8;
+	-ms-box-shadow: 0px 0px 17px #c8c8c8;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+	margin-bottom:10px;
+}
+.homeViewContainer{
+	margin: 0 2%;
+}
+body{
+background:url("content/background.jpg");
+}
+body,html{
+  -webkit-user-select: none;  /* Chrome all / Safari all */
+  -moz-user-select: none;     /* Firefox all */
+  -ms-user-select: none;      /* IE 10+ */
+
+  /* No support for these yet, use at own risk */
+  -o-user-select: none;
+  user-select: none;  
+	font-family:"arial";
+}
+@font-face {   
+	font-family:'arial';
+    src:url('font/lucida_grande-webfont.woff') format('woff');
+}
