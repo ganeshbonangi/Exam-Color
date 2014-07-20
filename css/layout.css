@@ -5,6 +5,9 @@ body {
 div{
 	
 }
+label{
+	font-weight: normal;
+}
 button,input{
 	margin:5px !important;
 }

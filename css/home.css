@@ -12,7 +12,7 @@
 	margin: 0 2%;
 }
 body{
-background:url("content/background.jpg");
+/*background:url("content/background.jpg");*/
 }
 body,html{
   -webkit-user-select: none;  /* Chrome all / Safari all */
