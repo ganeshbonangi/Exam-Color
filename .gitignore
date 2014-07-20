@@ -1,3 +1,2 @@
-content/content.xml
-content/examcolors.jpg
+content/*
 scripts/server.js
