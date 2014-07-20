@@ -8,7 +8,9 @@ div{
 button,input{
 	margin:5px !important;
 }
-
+.optionLabel{
+	display: inline-block;
+}
 .examSection{
 	position:absolute;
 	top:0px;

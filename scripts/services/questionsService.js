@@ -1,16 +1,16 @@
-app.factory("QuestionsService",function($rootScope){
+app.factory("QuestionsService",function($rootScope,$sce){
 
 	return {
 		setQestionData:function(){
 			$rootScope.total_questions=$($rootScope.xmlData).find("section[name='"+$rootScope.section+"'] questioninfo").length;
 			var questionNode=$($rootScope.xmlData).find("section[name='"+$rootScope.section+"'] questioninfo")[$rootScope.index];
-			$rootScope.question_information=$(questionNode).find("info").text();
-			$rootScope.question=$(questionNode).find("question").text();
+			$rootScope.question_information=$sce.trustAsHtml($(questionNode).find("info").html());
+			$rootScope.question=$sce.trustAsHtml($(questionNode).find("question").html());
 			var options=$(questionNode).find("option");
 			$rootScope.options=new Array();
 			$rootScope.ans=$(questionNode).find("answer").text();
 			for(var i=0;i<options.length;i++){
-				$rootScope.options.push($(options[i]).text());
+				$rootScope.options.push($sce.trustAsHtml($(options[i]).html()));
 			}	
 		},
 		getNextSection:function(){

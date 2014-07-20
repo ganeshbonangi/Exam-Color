@@ -1,4 +1,4 @@
-app.controller("examController",function($scope,$rootScope,QuestionsService,answerService,$timeout,$location){
+app.controller("examController",function($scope,$rootScope,QuestionsService,answerService,$timeout,$location,$sce){
 	if(local_server){
 	
 		$.ajax({
@@ -111,7 +111,9 @@ $scope.closePopup=function(){
 	
 	
 }
-
+$scope.trust=function(markup){
+	return $sce.trustAsHtml(markup);
+}
 	$scope.clearResponse=function(){
 		$("input[type='radio']").prop("checked",false);
 	}

@@ -15,10 +15,10 @@
 		</fieldset>
 		<div><b>Question No.{{index+1}}:</b></div>
 		<div class="scrollContainer">
-			<div class="instructions"> {{question_information}} </div><br />
+			<div class="instructions"><div ng-bind-html="question_information">  </div></div><br />
 			<div class="questionContainer">
-				<div>{{question}}</div><br />
-				<div ng-repeat="option in options"> <input type="radio" name="rbg" />{{option}} </div>
+				<div><div ng-bind-html="question"></div></div><br />
+				<div ng-repeat="option in options"> <input type="radio" name="rbg"  /><div ng-bind-html="option" class="optionLabel">  </div> </div>
 			</div>			
 		</div>
 		<div class="bottomNavigationContainer">
