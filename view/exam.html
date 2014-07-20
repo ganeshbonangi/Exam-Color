@@ -18,7 +18,9 @@
 			<div class="instructions"><div ng-bind-html="question_information">  </div></div><br />
 			<div class="questionContainer">
 				<div><div ng-bind-html="question"></div></div><br />
-				<div ng-repeat="option in options"> <input type="radio" name="rbg"  /><div ng-bind-html="option" class="optionLabel">  </div> </div>
+				<div ng-repeat="option in options"> 
+					<input type="radio" name="rbg" id="{{$index}}" />
+					<label for="{{$index}}" ng-bind-html="option" class="optionLabel">  </label> </div>
 			</div>			
 		</div>
 		<div class="bottomNavigationContainer">
