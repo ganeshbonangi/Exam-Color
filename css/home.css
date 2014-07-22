@@ -26,5 +26,5 @@ body,html{
 }
 @font-face {   
 	font-family:'arial';
-    src:url('font/lucida_grande-webfont.woff') format('woff');
+    /*src:url('font/lucida_grande-webfont.woff') format('woff');*/
 }
