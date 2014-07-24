@@ -1,4 +1,4 @@
-var app=angular.module("myapp",["ngRoute","timer"]);
+var app=angular.module("myapp",["ngRoute","ngExamTimer"]);
 var service=angular.module("services",[]);
 app.config(function($routeProvider){
 	$routeProvider.when("/exam",{templateUrl:"view/exam.html"}).when("/home",{templateUrl:"view/home.html"}).otherwise({redirectTo:"/home"});

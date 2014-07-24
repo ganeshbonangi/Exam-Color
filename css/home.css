@@ -28,3 +28,7 @@ body,html{
 	font-family:'arial';
     /*src:url('font/lucida_grande-webfont.woff') format('woff');*/
 }
+.timeContainer *{
+	font-weight: bold;
+	display: inline-block;
+}
