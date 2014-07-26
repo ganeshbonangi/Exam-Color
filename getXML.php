@@ -58,7 +58,9 @@ $section->addAttribute('name', $x);
 			$count=0;
 			while ($token != false){
 				//$date = "04/30/1973";
-				list($first, $second) = split('__', $token);
+				$arr = explode('__', $token);
+				$first=$arr[0];
+				$second=$arr[1];
 				//echo "Month:  $second; Day: $first<br />\n";
 				$options->addChild("option",$first);
 				if($second=="true"){
