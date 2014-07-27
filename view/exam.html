@@ -10,7 +10,7 @@
 		 <fieldset>
 	  		<legend><b>Sections</b></legend>
 			<div class="sectionContainer">
-				<button class="btn btn-default" ng-class="{'btn-primary':section==tab}" ng-repeat="tab in sections" ng-click="updateSection(tab)"> {{tab}}</button>
+				<button class="btn btn-default" ng-class="{'btn-primary':section==tab.name}" ng-repeat="tab in dataObj.sections" ng-click="updateSection(tab.name,$index)"> {{tab.name}}</button>
 			</div><br />
 		</fieldset>
 		<div><b>Question No.{{index+1}}:</b></div>

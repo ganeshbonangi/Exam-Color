@@ -1,6 +1,6 @@
 <?php
 
-  $exam_name=$_GET["exam_name"];
+$exam_name=$_GET["exam_name"];
 
 $con = new mysqli("localhost", "abcde", "54321", "examcolors", 3306);
 if ($con->connect_errno) {
@@ -10,22 +10,15 @@ if ($con->connect_errno) {
 $data = $con->query("SELECT * FROM pattern where pattern_name='$exam_name'") ;
 $dataJSON=mysqli_fetch_assoc($data);
 $pattern=$dataJSON["pattern"];
-//var_dump($pattern);
- $pattern= json_decode($pattern);
-//var_dump($pattern) ;
-$xml = new SimpleXMLElement('<xml/>');//or $dom = new DOMDocument('1.0', 'utf-8');
-$examination=$xml->addChild('examination');
-$settings=$examination->addChild('settings');
-$settings->addChild('timer'); 
-$settings->addChild('theme'); 
-//echo 'xml';
-$sections=$examination->addChild('sections');
+$pattern= json_decode($pattern);
+$examination1 = array(
+										'settings' => array('timer'=>12,'theme'=>'sbi_clearks'),
+
+										'sections' => array()
+									);
+
 foreach($pattern as $x=>$x_value){//will traversing all sections
-//echo "coming..".$x;
-$section=$sections->addChild('section');
-$section->addAttribute('name', $x);
-
-
+	array_push($examination1["sections"],array('name'=>$x,'questioninfo'=>array()));
 	foreach ($x_value as $subsection => $total_quest) {//will traverse all subsection in the section
 	
 		$subsection_id=$con->query("SELECT subsection_id FROM subsections where subsection_name='$subsection'") ;
@@ -47,44 +40,36 @@ $section->addAttribute('name', $x);
 		}		
 		$data = $con->query($query1);
 		//echo ".......";
+
 		while($info = mysqli_fetch_array( $data )) 
 		{ 
-			$questioninfo=$section->addChild("questioninfo");
-			$questioninfo->addChild("info",$info["question_info"]);
-			$questioninfo->addChild("question",$info["question"]);
-			$options=$questioninfo->addChild("options");
+			$options = array();
 			$opts=$info["options"];			
 			$token = strtok($opts, "$$");  
-			$count=0;
+			$count=0;$stor;
 			while ($token != false){
 				//$date = "04/30/1973";
 				$arr = explode('__', $token);
 				$first=$arr[0];
 				$second=$arr[1];
-				//echo "Month:  $second; Day: $first<br />\n";
-				$options->addChild("option",$first);
+				array_push($options,$first);
 				if($second=="true"){
-					$questioninfo->addChild("answer",$count);
+					$stor=$count;
 				}
 				$count++;
 				$token = strtok("$$");
 			}
-			//var_dump($info);
-			// array_push($temp,$info['question_type_name']);
-		}
-		//var_dump($data);
-		//echo "\nsubsection:".$subsection."\nsubsection-id:".$subsection_id;
-		
+			$len=count($examination1["sections"])-1;
+			array_push($examination1["sections"][$len]["questioninfo"],array(
+							"info"=>$info["question_info"],
+							"question"=>$info["question"],
+							"options"=>$options,
+							"answer"=>$stor
+							));
+		}		
 	}
 }
-//$xml = new SimpleXMLElement('<xml/>');//will create xml doc this var should at start point of the php file.
-//for ($i = 1; $i <= 8; ++$i) {
-	//$track = $xml->addChild('track');
-	//$track->addChild('path', "song$i.mp3");
-	//$track->addChild('title', "Track $i - Track Title");
-//}
-//Header('Content-type: text/xml');
-print($xml->asXML());
 
-//echo $xml->asXML();
+print(json_encode($examination1));
+
 ?>

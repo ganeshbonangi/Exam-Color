@@ -1,25 +1,19 @@
 app.controller("examController",function($scope,$rootScope,QuestionsService,answerService,$timeout,$location,$sce){
 	if(local_server){
-	
 		$.ajax({
-			url:"content/content.xml",
+			url:"content/content.json",
 			type:"GET",
 			success:function(data){
-						$rootScope.xmlData=data;
-						var sections=$(data).find("section");
-						$rootScope.sections=new Array();
-						for(var i=0;i<sections.length;i++){
-							var section_name = $(sections[i]).attr("name");
-							$rootScope.sections.push(section_name);
-							$rootScope.questionState[section_name]={};	
+					
+						$rootScope.dataObj=data;
+						$rootScope.section=$rootScope.dataObj.sections[0].name;
+						for(var i=0;i<$rootScope.dataObj.sections.length;i++){
+							$rootScope.questionState[$rootScope.dataObj.sections[i].name]={};	
 						}
-						$rootScope.time=$(data).find("timer").text();
-						$rootScope.theme=$(data).find("theme").text();
-						$rootScope.section=$rootScope.sections[0];
+						$rootScope.dataObj.section=$rootScope.dataObj.sections[0];
 						$timeout(function(){
 							$rootScope.index=0;
 						});
-						
 					}
 		});	
 	}else{	
@@ -36,30 +30,21 @@ app.controller("examController",function($scope,$rootScope,QuestionsService,answ
 		  {
 		  if (xmlhttp.readyState==4 && xmlhttp.status==200)
 		    {
+					
+					var data=JSON.parse(xmlhttp.responseText);
+					$rootScope.dataObj=data;
+					$rootScope.section=$rootScope.dataObj.sections[0].name;
+					for(var i=0;i<$rootScope.dataObj.sections.length;i++){
 						
-						var data=$.parseXML(xmlhttp.responseText);
-											$rootScope.xmlData=data;
-					var sections=$(data).find("section");
-					$rootScope.sections=new Array();
-					for(var i=0;i<sections.length;i++){
-						var section_name = $(sections[i]).attr("name");
-						$rootScope.sections.push(section_name);
-						$rootScope.questionState[section_name]={};	
+						$rootScope.questionState[$rootScope.dataObj.sections[i].name]={};	
 					}
-					$rootScope.time=$(data).find("timer").text();
-					$rootScope.theme=$(data).find("theme").text();
-					$rootScope.section=$rootScope.sections[0];
+					$rootScope.dataObj.section=$rootScope.dataObj.sections[0];
 					$timeout(function(){
 						$rootScope.index=0;
 					});
-						
-		    	//document.getElementById("render").innerHTML="<b style='color:red'>Database Updated</b>";
-			//	$scope.question="";
-			//	$timeout(function(){document.getElementById("render").innerHTML="";},2000)
 		    }
 		  }
 		  var ex_name=$location.search()['exam_name'];
-		  console.log(ex_name);
 		xmlhttp.open("GET","getXML.php?exam_name="+ex_name,true);
 		xmlhttp.send();
 
@@ -92,19 +77,13 @@ $scope.validateQuestions = function(){
 				});
 			}
 		};
-		//$(".popup").append("<div></div>")
-		//$scope.scoreObj[section].notAnswered=$scope.scoreObj[section].noOfQuestions-
+		
 	});
-
-	//console.log($scope.scoreObj);
-	//$(".popup").css("display","block");
-	
 };
 $scope.closePopup=function(){
 
 	$rootScope.index=null;
 	$rootScope.questionState={};
-	//$('#myModal').modal('hide');
 	$timeout(function(){
 		$location.path("/home");
 	},500);
@@ -142,10 +121,11 @@ $scope.trust=function(markup){
 			if($(radioBoxes[i]).prop("checked")) return i;
 		}
 	}
-	$scope.updateSection=function(section_name){
+	$scope.updateSection=function(section_name,tab_index){
 		$rootScope.index=null;
+		$rootScope.tab_index=tab_index;
 		$rootScope.section=	section_name;
-		$rootScope.total_questions=$($rootScope.xmlData).find("section[name='"+$rootScope.section+"'] questioninfo").length;
+		$rootScope.total_questions=$rootScope.dataObj["sections"][$rootScope.tab_index]["questioninfo"].length;
 		$scope.updateButtonStatus("all");
 		$timeout(function(){
 			$rootScope.index=0;

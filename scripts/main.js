@@ -9,6 +9,7 @@ app.controller("knowledgeDigest",function(){
 app.run(function($rootScope,QuestionsService,answerService,$timeout){
 
 	$rootScope.index = null;
+	$rootScope.tab_index=0;
 	$rootScope.questionState={};
 	$rootScope.$watch("index",function(newval,oldval){
 		
@@ -23,16 +24,9 @@ app.run(function($rootScope,QuestionsService,answerService,$timeout){
 					$($("input[type='radio']")[index]).prop("checked",true);
 				}			
 			});
-			//$("#home-top-bar").css("visibility","hidden");
 		}else{
-			//$("#home-top-bar").css("visibility","visible");
+
 		}
 
 	});	
 });
-
-/*
-   $rootScope.$on('$routeChangeStart', function(event, currRoute, prevRoute) {
-	console.log(currRoute);
-	if (currRoute.authRequire && CONFIG.theme === 'kitaboo') Auth.check();
-  }); */
