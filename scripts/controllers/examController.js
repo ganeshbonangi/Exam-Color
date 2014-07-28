@@ -90,9 +90,7 @@ $scope.closePopup=function(){
 	
 	
 }
-$scope.trust=function(markup){
-	return $sce.trustAsHtml(markup);
-}
+
 	$scope.clearResponse=function(){
 		$("input[type='radio']").prop("checked",false);
 	}
