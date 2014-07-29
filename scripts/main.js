@@ -1,7 +1,7 @@
-var app=angular.module("myapp",["ngRoute","ngExamTimer"]);
+var app=angular.module("myapp",["ngRoute","ngExamTimer","ui.bootstrap"]);
 var service=angular.module("services",[]);
 app.config(function($routeProvider){
-	$routeProvider.when("/exam",{templateUrl:"view/exam.html"}).when("/home",{templateUrl:"view/home.html"}).otherwise({redirectTo:"/home"});
+	$routeProvider.when("/exam",{templateUrl:"view/exam.html"}).when("/ansers",{templateUrl:"view/ansers.html"}).when("/home",{templateUrl:"view/home.html"}).otherwise({redirectTo:"/home"});
 });
 app.controller("knowledgeDigest",function(){ 
 	

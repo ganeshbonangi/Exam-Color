@@ -1,4 +1,4 @@
-app.controller("examController",function($scope,$rootScope,QuestionsService,answerService,$timeout,$location,$sce){
+app.controller("examController",function($scope,$modal,$rootScope,QuestionsService,answerService,$timeout,$location,$sce){
 	if(local_server){
 		$.ajax({
 			url:"content/content.json",
@@ -46,10 +46,33 @@ app.controller("examController",function($scope,$rootScope,QuestionsService,answ
 		  }
 		  var ex_name=$location.search()['exam_name'];
 		xmlhttp.open("GET","getXML.php?exam_name="+ex_name,true);
-		xmlhttp.send();
-
-	
+		xmlhttp.send();	
 	}
+
+  $scope.open = function (size) {
+  	$scope.validateQuestions();
+    $modalInstance = $modal.open({
+      templateUrl: 'myModalContent.html',
+      scope: $scope,
+      size: size
+    });
+/*
+    $modalInstance.result.then(function (selectedItem) {
+      $scope.selected = selectedItem;
+    }, function () {
+    //  $log.info('Modal dismissed at: ' + new Date());
+    });*/
+  };
+
+
+
+  $scope.ok = function () {
+    $modalInstance.close();
+  };
+
+  $scope.cancel = function () {
+    $modalInstance.dismiss('cancel');
+  };
 
 $scope.validateQuestions = function(){
 	$scope.scoreObj = {};
@@ -79,18 +102,26 @@ $scope.validateQuestions = function(){
 		};
 		
 	});
+
+	//return $scope.scoreObj;
 };
 $scope.closePopup=function(){
 
 	$rootScope.index=null;
 	$rootScope.questionState={};
+	$modalInstance.dismiss('cancel');
 	$timeout(function(){
 		$location.path("/home");
+		$location.search("exam_name",null);
 	},500);
-	
-	
 }
-
+$scope.viewAns=function(){
+	$modalInstance.dismiss('cancel');
+	$timeout(function(){
+		$location.path("/ansers");
+		$location.search("exam_name",null);
+	},500);
+}
 	$scope.clearResponse=function(){
 		$("input[type='radio']").prop("checked",false);
 	}

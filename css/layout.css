@@ -114,3 +114,8 @@ button,input{
 		/*height:30px;*/
 	}
 }
+@media (min-width: 768px){
+	.modal-dialog {
+	width: 85%;
+	}
+}
