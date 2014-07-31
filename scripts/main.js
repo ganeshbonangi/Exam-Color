@@ -30,3 +30,17 @@ app.run(function($rootScope,QuestionsService,answerService,$timeout){
 
 	});	
 });
+window.addEventListener('resize', layOutChanger);
+function layOutChanger(evt){
+try{
+	if( window.innerWidth <= 800 ){//have to change the label size small
+		document.getElementById("review").innerHTML="Review & Next";
+		document.getElementById("clear").innerHTML="Clear";
+		document.getElementById("save").innerHTML="Save & Next";
+	}else{//have to change the lable as it is.
+		document.getElementById("review").innerHTML="Make for Review & Next";
+		document.getElementById("clear").innerHTML="Clear Response";
+		document.getElementById("save").innerHTML="Save & Next";
+	}
+}catch(e){}
+}
