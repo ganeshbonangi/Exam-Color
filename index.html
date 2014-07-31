@@ -27,86 +27,18 @@
 
 </div>
 
-<nav id="home-top-bar" class="navbar navbar-inverse" role="navigation">
-  <div class="container-fluid">
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="#">ExamColors</a>
-    </div>
 
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div collapse="navCollapsed" class="nav-collapse collapse navbar-responsive-collapse">
-      <!--ul class="nav navbar-nav">
-        <li class="active"><a href="#">Link</a></li>
-        <li><a href="#">Link</a></li>
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
-          <ul class="dropdown-menu">
-            <li><a href="#">Action</a></li>
-            <li><a href="#">Another action</a></li>
-            <li><a href="#">Something else here</a></li>
-            <li class="divider"></li>
-            <li><a href="#">Separated link</a></li>
-            <li class="divider"></li>
-            <li><a href="#">One more separated link</a></li>
-          </ul>
-        </li>
-      </ul-->
-      <!--form class="navbar-form navbar-left" role="search">
-        <div class="form-group">
-          <input type="text" class="form-control" placeholder="Search">
-        </div>
-        <button type="submit" class="btn btn-default">Submit</button>
-      </form-->
-      <ul class="nav navbar-nav navbar-right">
-        <!--li><a href="#">Link</a></li-->
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown"> Learn <b class="caret"></b></a>
-          <ul class="dropdown-menu">
-				<li><a href="http://www.examcolors.com/">Why ExamColors?</a></li><!--class="disabled"-->
-				<li><a href="http://www.youtube.com/user/examcolors">Watch</a></li>
-				<li><a href="tutorial">Tutorial</a></li>
-          </ul>
-        </li>
-		<li class="divider-vertical"></li>
-		<li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown"> Mock test <b class="caret"></b></a>
-          <ul class="dropdown-menu">
-            <li><a ng-href="#/exam?exam_name=IBPS_clerk">IBPS clerk exam</a></li>
-          </ul>
-        </li>
-		<li class="divider-vertical"></li>
-		<li class="dropdown" class="nav pull-right">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown"> Discuss <b class="caret"></b></a>
-          <ul class="dropdown-menu">
-				<li><a href="https://plus.google.com/106842324914542316503/">Google+</a></li>
-				<li><a href="https://www.facebook.com/examcolors">Facebook</a></li>
-          </ul>
-        </li>
-		<li class="divider-vertical"></li>
-      </ul>
-    </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
-</nav>
 		<div ng-view> </div>
 		<!-- build:js scripts/app.js -->
 		<script src="plugins/jquery/jquery-1.10.2.min.js" type="text/javascript"></script>
 		<script src="plugins/angular/angular.js" type="text/javascript"></script>
-    <script src="plugins/bootstrap-custom/ui-bootstrap-tpls-0.11.0.js" type="text/javascript"></script>
+    	<script src="plugins/bootstrap-custom/ui-bootstrap-tpls-0.11.0.js" type="text/javascript"></script>
 		<script src="plugins/angular/angular-route.js" type="text/javascript"></script>
 		<script src="plugins/angular/exam_timer.js" type="text/javascript"></script>
-		<!--script src="plugins/htmlentity.js" type="text/javascript"></script-->
-    <script src="scripts/main.js" type="text/javascript"></script>
+   	 	<script src="scripts/main.js" type="text/javascript"></script>
 		<script src="scripts/server.js" type="text/javascript"></script>
 		<script src="scripts/controllers/examController.js" type="text/javascript"> </script>
 		<script src="scripts/services/questionsService.js" type="text/javascript"> </script>
-
 		<!-- endbuild -->
 		<script type="text/javascript">
 			  window.addEventListener('resize', layOutChanger);

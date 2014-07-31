@@ -5,15 +5,20 @@ app.controller("examController",function($scope,$modal,$rootScope,QuestionsServi
 			type:"GET",
 			success:function(data){
 					
-						$rootScope.dataObj=data;
-						$rootScope.section=$rootScope.dataObj.sections[0].name;
-						for(var i=0;i<$rootScope.dataObj.sections.length;i++){
-							$rootScope.questionState[$rootScope.dataObj.sections[i].name]={};	
-						}
-						$rootScope.dataObj.section=$rootScope.dataObj.sections[0];
-						$timeout(function(){
-							$rootScope.index=0;
-						});
+					$rootScope.dataObj=data;
+					$rootScope.showPreloader=false;
+					$rootScope.section=$rootScope.dataObj.sections[0].name;
+					for(var i=0;i<$rootScope.dataObj.sections.length;i++){
+						
+						$rootScope.questionState[$rootScope.dataObj.sections[i].name]={};	
+					}
+					$rootScope.dataObj.section=$rootScope.dataObj.sections[0];
+					$timeout(function(){
+						$rootScope.index=0;
+					});
+					layOutChanger();
+
+
 					}
 		});	
 	}else{	
@@ -33,6 +38,7 @@ app.controller("examController",function($scope,$modal,$rootScope,QuestionsServi
 					
 					var data=JSON.parse(xmlhttp.responseText);
 					$rootScope.dataObj=data;
+					$rootScope.showPreloader=false;
 					$rootScope.section=$rootScope.dataObj.sections[0].name;
 					for(var i=0;i<$rootScope.dataObj.sections.length;i++){
 						
@@ -42,9 +48,11 @@ app.controller("examController",function($scope,$modal,$rootScope,QuestionsServi
 					$timeout(function(){
 						$rootScope.index=0;
 					});
+					layOutChanger();
 		    }
 		  }
-		  var ex_name=$location.search()['exam_name'];
+		$rootScope.showPreloader=true;
+		var ex_name=$location.search()['exam_name'];
 		xmlhttp.open("GET","getXML.php?exam_name="+ex_name,true);
 		xmlhttp.send();	
 	}
@@ -56,15 +64,7 @@ app.controller("examController",function($scope,$modal,$rootScope,QuestionsServi
       scope: $scope,
       size: size
     });
-/*
-    $modalInstance.result.then(function (selectedItem) {
-      $scope.selected = selectedItem;
-    }, function () {
-    //  $log.info('Modal dismissed at: ' + new Date());
-    });*/
   };
-
-
 
   $scope.ok = function () {
     $modalInstance.close();
@@ -121,6 +121,7 @@ $scope.viewAns=function(){
 		$location.path("/ansers");
 		$location.search("exam_name",null);
 	},500);
+	debugger;
 }
 	$scope.clearResponse=function(){
 		$("input[type='radio']").prop("checked",false);
