@@ -33,8 +33,8 @@ app.factory("QuestionsService",function($rootScope,$sce){
 
 }).factory("answerService",function($rootScope){
 	return{
-			updateJSON:function(class_name,user_ans){
-				$rootScope.questionState[$rootScope.section][$rootScope.index] = {"class_name":class_name,"user_ans":user_ans};
+			updateJSON:function(class_name,user_ans,ans){
+				$rootScope.questionState[$rootScope.section][$rootScope.index] = {"class_name":class_name,"user_ans":user_ans,"ans":ans};
 			},
 			getQuestionJSON:function(){
 				try{

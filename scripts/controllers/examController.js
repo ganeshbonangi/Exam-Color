@@ -86,9 +86,10 @@ $scope.validateQuestions = function(){
 			if(Object.keys(currentSection).length > 0) {
 				var stateofQuestions = Object.keys(currentSection);
 				stateofQuestions.forEach(function(status){	
+
 				  if(!isNaN(status)) {				  	
 				  	$scope.scoreObj[section].answered+=1;
-				  	if(currentSection[status]['user_ans'] == currentSection[status+'_ans']){
+				  	if( typeof currentSection[status]['user_ans'] != undefined	&& currentSection[status]['user_ans'] == currentSection[status]['ans']){
 				  		//$scope.scoreObj[section]={};
 				  		$scope.scoreObj[section].correctAnswered+=1;//$scope.scoreObj[section]+1;//score ++;
 				  	}else if(typeof currentSection[status]['user_ans']=="undefined"){
@@ -127,8 +128,8 @@ $scope.viewAns=function(){
 	$scope.saveNreview=function( status ){
 		var class_name=status=="save"?"btn-success":"btn-warning";
 		var userAns=$scope.getCheckedIndex();
-		answerService.updateJSON(class_name,userAns);
-				answerService.setActualAns();
+		answerService.updateJSON(class_name,userAns,$rootScope.ans);
+				//answerService.setActualAns();
 		$scope.updateButtonStatus();
 		if($rootScope.index == $rootScope.total_questions-1){
 			var section=QuestionsService.getNextSection();
@@ -145,7 +146,7 @@ $scope.viewAns=function(){
 	};
 	$scope.getCheckedIndex=function(){
 		var radioBoxes=$("input[type='radio']");
-		for(var i=0;i<radioBoxes.length;i++){
+		for(var i=0; i<radioBoxes.length; i++){
 			if($(radioBoxes[i]).prop("checked")) return i;
 		}
 	}
