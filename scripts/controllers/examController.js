@@ -17,8 +17,6 @@ app.controller("examController",function($scope,$modal,$rootScope,QuestionsServi
 						$rootScope.index=0;
 					});
 					layOutChanger();
-
-
 					}
 		});	
 	}else{	

@@ -2,7 +2,7 @@ module.exports = function(grunt) {
  
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
-     
+	
     // Define our source and build folders
     js_temp_path:".temp/scripts",
 	js_src_path: 'src/scripts',
@@ -19,47 +19,42 @@ module.exports = function(grunt) {
       options:{
         separator: ';'
       },
-      /*js: {
-        src: [ 		
-			   
-		],
-        dest: '<%= js_build_path %>/app.js'
-      },*/
 	  js:{
 		src:[  	
-			   '<%= plugin_src_path %>/jquery/jquery-1.10.2.min.js',
-			   '<%= plugin_src_path %>/bootstrap-3.0.3-dist/dist/js/bootstrap.min.js',
-			   '<%= plugin_src_path %>/angular/angular.min.js', 
-			   '<%= plugin_src_path %>/angular/angular-route.min.js',	
-			   '<%= plugin_src_path %>/angular/exam_timer.js',
-			   '<%= js_src_path %>/main.js',
 			   '<%= js_src_path %>/server.js',
+			   '<%= js_src_path %>/main.js',
 			   '<%= js_src_path %>/controllers/examController.js',
 			   '<%= js_src_path %>/services/questionsService.js'		  
 			 ],
 		dest:'<%= js_build_path %>/app.min.js'
 	  },
+	  plugin:{
+		src:[
+			   '<%= plugin_src_path %>/jquery/jquery-1.10.2.js',
+			   '<%= plugin_src_path %>/angular/angular.js', 
+			   '<%= plugin_src_path %>/bootstrap-custom/ui-bootstrap-tpls-0.11.0.js',
+			   '<%= plugin_src_path %>/angular/angular-route.js',	
+			   '<%= plugin_src_path %>/angular/exam_timer.js'
+			],
+		dest:'<%= plugin_temp_path %>/plugin.js'
+	  },
       css:{
-        src: ['src/plugins/bootstrap-3.0.3-dist/dist/css/bootstrap.min.css','<%= css_src_path %>/*.css'],
+        src: ['src/plugins/bootstrap-3.0.3-dist/dist/css/bootstrap.css','<%= css_src_path %>/*.css'],
         dest: '<%= css_temp_path %>/app.css'   
       }
     },
     uglify: {
       options:{
-        mangle: true,
-        banner: '/*! <%= pkg.title || pkg.name %> - v<%= pkg.version + "\\n" %>' +
-        '* <%= grunt.template.today("yyyy-mm-dd") + "\\n" %>' +
-        '* <%= pkg.homepage + "\\n" %>' + 
-        '* Copyright (c) <%= grunt.template.today("yyyy") %> - <%= pkg.title %> */ <%= "\\n" %>'
+        mangle: true
       },
       /*js: {
         src: '<%= concat.js.dest %>',
         dest:'<%= js_build_path %>/app.min.js'
       },*/
-     /* plugin: {
+      plugin: {
         src: '<%= concat.plugin.dest %>',
         dest:'<%= plugin_build_path %>/plugin.min.js'
-      }*/
+      }
     },
     cssmin: {
       css: {
@@ -69,14 +64,24 @@ module.exports = function(grunt) {
     },
 	copy: {
 	  main: {
-	  files: [{
-	  expand: true,
+	  files: [
+	  {
+		expand: true,
 		cwd: '<%= css_src_path %>/font/',
 		src: '**',
 		dest: '<%= css_build_path %>/font/',
 		flatten: true,
 		filter: 'isFile'
-	  },{		expand: true,
+		},
+		{
+		expand: true,
+		cwd: '<%= css_src_path %>/images/',
+		src: '**',
+		dest: '<%= css_build_path %>/images/',
+		flatten: true,
+		filter: 'isFile'
+		},
+		{		expand: true,
 		cwd: 'src/',
 		src: 'index.html',
 		dest: 'build/',
@@ -86,6 +91,12 @@ module.exports = function(grunt) {
 		cwd: 'src/view/',
 		src: '**',
 		dest: 'build/view/',
+		flatten: true,
+		filter: 'isFile'},
+		{		expand: true,
+		cwd: 'src/scripts/',
+		src: '**',
+		dest: 'build/scripts/',
 		flatten: true,
 		filter: 'isFile'},
 		{		expand: true,
@@ -109,7 +120,8 @@ module.exports = function(grunt) {
       files: {                                   // Dictionary of files
         'build/index.html': 'build/index.html',     // 'destination': 'source'
         'build/view/home.html': 'build/view/home.html',
-		'build/view/exam.html': 'build/view/exam.html'
+		'build/view/exam.html': 'build/view/exam.html',
+		'build/view/ansers.html': 'build/view/ansers.html'
       }
     }
   }
