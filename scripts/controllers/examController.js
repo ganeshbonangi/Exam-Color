@@ -51,7 +51,12 @@ app.controller("examController",function($scope,$modal,$rootScope,QuestionsServi
 		  }
 		$rootScope.showPreloader=true;
 		var ex_name=$location.search()['exam_name'];
-		xmlhttp.open("GET","getXML.php?exam_name="+ex_name,true);
+		if(authorizedUser){
+			xmlhttp.open("GET","getXML.php?exam_name="+ex_name,true);
+		}else{
+			xmlhttp.open("GET","getXML.php?exam_name="+ex_name,true);
+		}
+		
 		xmlhttp.send();	
 	}
 

@@ -37,3 +37,79 @@ body,html{
 	display: inline-block;
 	float: right;
 }
+#links{
+	float:left;
+}
+#loginWrapper,#registrationWrapper{
+	padding:30px;
+	position:relative;
+	margin:0 auto;
+}
+#registrationWrapper{
+	float:left;
+	margin-left:150px;
+	width:450px;
+}
+#loginWrapper{
+	float:right;
+	margin-right:0px;
+}
+#loginButton{
+	margin-top: 22px;
+	margin-left: 25px;
+}
+.form-group{
+margin-left:15px;
+}
+h4 {
+text-align: center;
+}
+.navbar-brand {
+float: left;
+/* padding: 15px 15px; */
+font-size: 50px;
+line-height: 20px;
+margin-top: 40px;
+margin-left: 150px;
+font-weight: bolder;
+}
+ @media(min-width:2px) and (max-width:500px) {
+#registrationWrapper,#loginWrapper{
+	width: 270px;
+	padding: 20px 20px;
+	margin: 0 auto ;
+	float:none;
+}
+} 
+#header {
+	display: inline-block;
+	height: auto;
+	width: 100%;
+	background-color:#3B5998;
+
+}
+#logo {
+	margin-left: 180px;
+	float: left;
+	/* height: 131px; */
+	/* padding: 62px; */
+	font-size: 32px;
+	margin-top: 50px;
+	font-weight: bold;
+	font-family: arial;
+	color: #fff;
+	opacity: 0.9;
+}
+
+ @media(min-width:2px) and (max-width:500px) {
+#logo{
+	font-size:30px;
+	margin-left: 104px;
+}
+}
+#registerButton {
+	margin-left: 14px;
+}
+.loginlables{
+	color:#fff;
+}

@@ -1,19 +1,52 @@
+<script type='text/javascript'>
+var authorizedUser = false;
+angular.element(document).ready(function(){
+	var loginObject,registerObject;
+	loginObject = {'userName':'','password':''};
+	registerObject = {'userName':'','password':'','dateOfBirth':'','phoneNumber':''};
+	$('#loginButton').bind('click',function(){
+		loginObject.userName = $('#loginInputEmail').val();
+		loginObject.password = $('#loginInputPassword').val();
+		phpCall('login.php',loginObject)
+	});
+	$('#registerButton').on('click',function(){
+		registerObject.userName = $('#registrationInputEmail').val();
+		registerObject.password = $('#registrationInputPassword').val();
+		registerObject.dateOfBirth = $('#registrationDataOfBirth').val();
+		registerObject.phoneNumber = $('#registrationPhoneNumber').val();
+		phpCall('registration.php',registerObject)
+	});
+	function phpCall(phpFile,dataObject){
+		$.post(""+phpFile+"",
+		{"data":dataObject},
+		function(data,status){
+			//$("body").append(data);
+			//alert("Data: " + data + "\nStatus: " + status);
+			if(data == 'authorizeduser'){
+				authorizedUser = true;
+				window.location.href = 'http://localhost/login/Exam-Color/#/exam?exam_name=sbi%20clerk';
+				//window.loction.reload();
+				successFullLogin();
+			}else{
+				alert('Check your username and password and try again');
+			}
+		});
+	}
+	function successFullLogin(){
+		alert('successfully logged in');
+		//restfunctionality;
+	}
+});
+</script>
+
 <div class="homeViewContainer"> 
-<nav id="home-top-bar" class="navbar navbar-inverse" role="navigation">
-  <div class="container-fluid">
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="#">ExamColors</a>
-    </div>
+
+
+      <!-- <a class="navbar-brand" href="#">ExamColors</a> -->
+   
 
     <!-- Collect the nav links, forms, and other content for toggling -->
-    <div collapse="navCollapsed" class="nav-collapse collapse navbar-responsive-collapse">
+    
       <!--ul class="nav navbar-nav">
         <li class="active"><a href="#">Link</a></li>
         <li><a href="#">Link</a></li>
@@ -36,12 +69,11 @@
         </div>
         <button type="submit" class="btn btn-default">Submit</button>
       </form-->
-      <ul class="nav navbar-nav navbar-right">
-        <!--li><a href="#">Link</a></li-->
+<!--       <ul class="nav navbar-nav navbar-right">
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown"> Learn <b class="caret"></b></a>
           <ul class="dropdown-menu">
-				<li><a href="http://www.examcolors.com/">Why ExamColors?</a></li><!--class="disabled"-->
+				<li><a href="http://www.examcolors.com/">Why ExamColors?</a></li>
 				<li><a href="http://www.youtube.com/user/examcolors">Watch</a></li>
 				<li><a href="tutorial">Tutorial</a></li>
           </ul>
@@ -62,51 +94,90 @@
           </ul>
         </li>
 		<li class="divider-vertical"></li>
-      </ul>
-    </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
-</nav>
+      </ul> -->
+	<div id='header'>
+		<div id='logo'>
+		ExamColors
+		</div>
+		<div id='loginWrapper'>
+			<form role="form" class='form-inline'>
+			<div class="form-group">
+					<label for="username" class='loginlables'>Username</label>
+					<input type="email" class="form-control" id="loginInputEmail" placeholder="Enter email">
+			</div>
+			<div class="form-group">
+					<label for="password" class='loginlables'>Password</label>
+					<input type="password" class="form-control" id="loginInputPassword" placeholder="Password">
+			</div>
+			<div id ='loginButton' class="btn btn-primary">Login</div>
+			</form>
+		</div>	 
+	 </div> 
+
 <div class="linkContainer">
-<p><b>Heartly welcome to examcolors.com</b></p>
-<p>
+	<div id="links">
+	<p><b>Heartly welcome to examcolors.com</b></p>
+	<p>
 
-examcolors.com is only for the aspirants who are preparing for BANK EXAMS.
-</p>
-<p>examcolours.com could able to analyse the previous SBI exams and it's pattern.
+	examcolors.com is only for the aspirants who are preparing for BANK EXAMS.
+	</p>
+	<p>examcolours.com could able to analyse the previous SBI exams and it's pattern.</p>
 
-We will help you to get the idea of sample SBI online exam with free of cost.</p>
-<ul class="nav nav-pills nav-stacked">
- <li>
- <a ng-href="#/exam?exam_name=sbi clerk">Click here for sample exam1 of SBI clerk 2014.</a>
- </li>
- <li>
- <a ng-href="#/exam?exam_name=sbi clerk">Click here for sample exam2 of SBI clerk 2014.</a>
- </li>
- <li>
- <a ng-href="#/exam?exam_name=sbi clerk">Click here for sample exam3 of SBI clerk 2014.</a>
- </li>
- <li>
- <a ng-href="#/exam?exam_name=sbi clerk">Click here for sample exam4 of SBI clerk 2014.</a>
- </li>
- <li>
- <a ng-href="#/exam?exam_name=sbi clerk">Click here for sample exam5 of SBI clerk 2014.</a>
- </li> 
-  <li>
- <a href="https://www.sbi.co.in/webfiles/uploads/files/1400852958172_SBI_RECRUITMENT_OF_ASSISTANTS_CLERICAL_CADRE.pdf">click here for SBI notification details</a>
- </li> 
-</ul>
+	<p>We will help you to get the idea of sample SBI online exam with free of cost.</p>
+		<ul class="nav nav-pills nav-stacked">
+		 <li>
+		 <a ng-href="#/exam?exam_name=sbi clerk">Click here for sample exam1 of SBI clerk 2014.</a>
+		 </li>
+		 <li>
+		 <a ng-href="#/exam?exam_name=sbi clerk">Click here for sample exam2 of SBI clerk 2014.</a>
+		 </li>
+		 <li>
+		 <a ng-href="#/exam?exam_name=sbi clerk">Click here for sample exam3 of SBI clerk 2014.</a>
+		 </li>
+		 <li>
+		 <a ng-href="#/exam?exam_name=sbi clerk">Click here for sample exam4 of SBI clerk 2014.</a>
+		 </li>
+		 <li>
+		 <a ng-href="#/exam?exam_name=sbi clerk">Click here for sample exam5 of SBI clerk 2014.</a>
+		 </li> 
+		  <li>
+		 <a href="https://www.sbi.co.in/webfiles/uploads/files/1400852958172_SBI_RECRUITMENT_OF_ASSISTANTS_CLERICAL_CADRE.pdf">click here for SBI notification details</a>
+		 </li> 
+		</ul>
+		<div class="aboutUsContainer">
+			<p><b>Thank you for your valuable support.</b></p>
 
+		</div>
+		<div class="aboutSiteContainer">
+			<p><b>About this site:</b></p>
+			<p>Examcolors.com conduct online exams practice sessions for bank exam, ibps exams</p>
+		</div>
+	</div>
+	<div id='registrationWrapper'>
+		<h4>Registration Page</h4>
+		<form role="form">
+		<div class="form-group">
+		<label for="username">Username</label>
+		<input type="email" class="form-control input-block-level" id="registrationInputEmail" placeholder="Enter email">
+		</div>
+		<div class="form-group">
+		<label for="password">Password</label>
+		<input type="password" class="form-control input-block-level" id="registrationInputPassword" placeholder="Password">
+		</div>
+		<div class="form-group">
+		<label for="dateOfBirth">Date Of Birth</label>
+		<input type="date" class="form-control input-block-level" id="registrationDataOfBirth" placeholder="Date Of Birth" data-date-format="yyyy-mm-dd">
+		</div>
+		<div class="form-group">
+		<label for="phoneNumber">Phone Number</label>
+		<input type="number" class="form-control input-block-level" id="registrationPhoneNumber" placeholder="Phone Number">
+		</div>
+		<div  id ='registerButton' class="btn btn-lg btn-primary btn-block">Register</div>
+		</form>
+	</div>
 </div>
 <div class="socialmediaContainer">
 
-</div>
-<div class="aboutUsContainer">
-<p><b>Thank you for your valuable support.</b></p>
-
-</div>
-<div class="aboutSiteContainer">
-<p><b>About this site:</b></p>
-<p>Examcolors.com conduct online exams practice sessions for bank exam, ibps exams</p>
 </div>
 </div >
 
